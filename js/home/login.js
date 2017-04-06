@@ -18,6 +18,11 @@ define(["jquery", "jqueryCookie", "nprogress"], function ($, undefined, nprogres
                 success: function (data) {
                     console.log(data);
                     if (data.code === 200) {
+                        
+                        // 把返回的用户信息保存到cookie中，供其他页面使用，
+                        // 注意设置path属性，不然默认为当前路径，其他页面无法使用。
+                        $.cookie('userInfo', JSON.stringify(data.result), {path: '/'});
+
                         location.href = '/';
                     }
                 },

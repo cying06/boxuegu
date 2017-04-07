@@ -53,7 +53,7 @@ define(['jquery', 'jqueryCookie', 'template'], function ($, undefined, template)
         // 2、移除所有a标签的active类名
         // 3、把路径当做属性选择器选择页面对应的a标签，给对应的a标签单独添加
 
-        var pathname = location.pathname;
+        // var pathname = location.pathname;
 
         // $("a").removeClass("active");
 
@@ -61,7 +61,7 @@ define(['jquery', 'jqueryCookie', 'template'], function ($, undefined, template)
 
 
         // 链式编程
-        $(".navs a").removeClass('active').filter('[href="' + pathname + '"]').addClass("active");
+        // $(".navs a").removeClass('active').filter('[href="' + pathname + '"]').addClass("active");
 
         /**
 		 * 还有一些子页面或者隐藏比较深的页面，这些页面在导航左侧没有对应的列表，
@@ -79,5 +79,8 @@ define(['jquery', 'jqueryCookie', 'template'], function ($, undefined, template)
             '/html/teacher/teacher_add.html': '/html/teacher/teacher_list.html'
         }
         var pathname = location.pathname;
+        console.log(pathname);
+        var aHref = pathHref[pathname]? pathHref[pathname]: pathname;
+		$('.navs a').removeClass('active').filter('[href="' + aHref + '"]').addClass('active');
     })();
 });

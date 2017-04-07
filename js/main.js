@@ -27,6 +27,7 @@ define([], function () {
 			aside: 'js/common/aside',
 			header: 'js/common/header',
 			common: 'js/common/common',
+			loading: 'js/common/loading',
 
       // 配置第三方js模块别名
       template: 'lib/artTemplate/template-debug',
